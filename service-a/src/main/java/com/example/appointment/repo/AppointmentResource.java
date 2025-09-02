@@ -17,9 +17,12 @@ public class AppointmentResource {
     @GET
     public Response getAppointments() {
         List<Appointment> appointments;
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) 
+        {
             appointments = session.createQuery("from Appointment", Appointment.class).list();
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             e.printStackTrace();
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
                     .entity("Error fetching appointments: " + e.getMessage()).build();
@@ -30,9 +33,8 @@ public class AppointmentResource {
     @POST
     public Response addAppointment(@Valid Appointment appointment) {
         Transaction tx = null;
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-
-            // 🔎 Step 1: Check if doctor already has an appointment at the same date & time
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) 
+        {  
             Long count = session.createQuery(
                     "SELECT COUNT(a) FROM Appointment a WHERE a.doctorName = :doctorName AND a.date = :date AND a.time = :time",
                     Long.class)
@@ -41,22 +43,23 @@ public class AppointmentResource {
                 .setParameter("time", appointment.getTime())
                 .uniqueResult();
 
-            if (count != null && count > 0) {
+            if (count != null && count > 0) 
+            {
                 return Response.status(Response.Status.CONFLICT)
                         .entity("This slot is already booked for " + appointment.getDoctorName() +
                                 " at " + appointment.getDate() + " " + appointment.getTime())
                         .build();
             }
-
-            // ✅ Step 2: Save appointment if no conflict
             tx = session.beginTransaction();
             session.persist(appointment);
             tx.commit();
-
             return Response.status(Response.Status.CREATED).entity(appointment).build();
 
-        } catch (Exception e) {
-            if (tx != null && tx.isActive()) {
+        } 
+        catch (Exception e) 
+        {
+            if (tx != null && tx.isActive()) 
+            {
                 tx.rollback();
             }
             e.printStackTrace();
