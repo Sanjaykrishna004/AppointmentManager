@@ -2,7 +2,7 @@ package com.example.appointment.repo;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import com.example.appointment.entity.Appointment; // import your entity
+import com.example.appointment.entity.Appointment;
 
 public class HibernateUtil {
     private static final SessionFactory sessionFactory = buildSessionFactory();
