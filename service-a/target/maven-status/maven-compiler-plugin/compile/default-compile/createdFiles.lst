@@ -1,0 +1,7 @@
+com/example/appointment/health/ServiceLiveHealthCheck.class
+com/example/appointment/repo/AppointmentResource.class
+com/example/appointment/repo/HibernateUtil.class
+com/example/appointment/entity/Appointment.class
+com/example/appointment/health/ServiceReadyHealthCheck.class
+com/example/appointment/Portconnection/CorsFilter.class
+com/example/appointment/config/AppConfig.class

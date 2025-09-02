@@ -1,0 +1,8 @@
+kumuluzee:
+  name: appointment
+  version: 1.0-SNAPSHOT
+  server:
+    http:
+      port: 8080
+  openapi:
+    enabled: false

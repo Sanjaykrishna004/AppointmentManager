@@ -1,0 +1,101 @@
+/* Make inputs & textarea look modern */
+form input,
+form select,
+form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  margin: 0px 0;
+  transition: border-color 0.2s ease-in-out;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+}
+.form-header-with-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px; /* space between logo and h2 */
+  margin-bottom: 20px;
+}
+
+.form-header-logo {
+  margin-top: 13px;
+  margin-left: 20px;
+  height: 40px; /* adjust size as needed */
+  width: 50px;
+  object-fit: contain;
+}
+form input:focus,
+form select:focus,
+form textarea:focus {
+  border-color: #486ada; /* highlight on focus */
+  outline: none;
+}
+
+/* Headline */
+form h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #045d75;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/* Error message styling */
+.error {
+  color: red;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 8px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Button styling */
+form button {
+  background-color: #0077b6;
+  color: white;
+  font-size: 20px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+form button:hover {
+  background-color: #023e8a;
+}
+
+::placeholder {
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  color: #888;
+}
+
+/* Doctor Dropdown Styling */
+form select[name="doctorName"] {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #045d75;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+  appearance: none; /* removes default browser arrow */
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24'%3E%3Cpath fill='%23045d75' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  cursor: pointer;
+}
+
+form select[name="doctorName"]:focus {
+  border-color: #486ada;
+  box-shadow: 0 0 6px rgba(72, 106, 218, 0.4);
+  outline: none;
+}
